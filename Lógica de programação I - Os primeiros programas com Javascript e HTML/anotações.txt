@@ -1,0 +1,195 @@
+HTML (Hyper Text Markup Language - Linguagem de Marcação de Hipertexto)
+
+HTML é uma linguagem de marcação, pois ela possibilita marcar conteúdos por meio de tags
+	O HTML é estático, isto é, não muda. Não podemos fazer nada muito sofisticado com ele. 
+	Algumas tags não possuem marcação, como o <br>, que serve para pular uma linha
+
+<br> = pular linha (br é a abreviação de "break")
+
+<h1> = título/destaque/cabeçalho (h de "heading")
+
+"Ctrl + R" = recarregar a página
+
+<a> = tag HTML de "âncora" para criar links na web
+	A tag <a> nos permite sair de uma página e mudar para outra
+
+href = h"hiperlink" ref "referencia"
+
+linguagem javascript deve ser colocado dentro de <script> </script>
+
+<meta charset="UTF-8"> = como o navegador deve interpretar as cadeias de caracteres
+	meta = elemento capaz de definir qualquer tipo de informação
+	charset = indicar o formato de codificação de alguns caracteres que são utilizados dentro do documento
+	UTF-8 = é uma maneira de viabilizar a programação e a leitura de documentos em qualquer tipo de idioma
+
+Depurador que diz onde houve um problema no código: F12 ou Ctrl+Shift+C
+
+alert = instrução de linguagem que indica que um alerta deverá ser exibido
+	texto deve estar entre parênteses e aspas duplas " ", e com um ; (ponto e vírgula) no fim
+
+Ctrl+S = salvar 
+
+"String" = nome comum para "texto"
+
+extensão de arquivo confere ao Sistema Operacional uma pista de qual programa deve ser usado para abrir o arquivo em questão. Neste caso, em todo arquivo criado deve ser utilizada a extensão .html
+	criar arquivos com letras minúsculas
+	se houver mais de uma plavra, separar com "_"
+	não utilizar acentos
+	ex.: primeiro_sistema_que_fiz.html
+
+Convenções:
+	tags HTML devem ser digitadas com letras minúsculas (no JavaScript não funcionará se for digitado em maiusculo)
+	
+Para abrir o arquivo no navegador: "CTRL + O"
+
+______________
+
+
+
+alert recebe o texto dentro de "()"
+
+O mínimo que precisamos no programa para que ele funcione é o seguinte código:
+1 <meta charset="UTF-8">
+2 
+3 <script>
+4 </script>
+A primeira, <meta charset="UTF-8"> resolve o problema de acentuação e a segunda define o mundo JavaScript, pois é entre a abertura da tag <script> e seu fechamento </script> que escreveremos os códigos dinâmicos!
+
+Para verificar onde está ocorrendo o erro no código: Na barra de menu superior, selecionaremos as opções "Visualizar > Desenvolvedor > Console JavaScript ou se preferir a tecla F12".
+
+Para escrever, a partir do mundo JS, um HTML:
+document.write: "escrever no documento" - recebe o texto dentro de "("...")"
+Utilizamos o document.write porque o JavaScript é uma linguagem dinâmica. Podemos, eventualmente, imprimir estas informações múltiplas vezes.
+
+javaScript só considera texto se estiver entre aspas
+números podem estar fora de aspas, com número é possível fazer operações matemáticas dentro do código.
+ex.: document.write(18 + 20)
+Se os número estiverem dentro de aspas, não irá somar.
+
+document.write("18" + "20") = "concatenação" (operação de soma envolvendo texto = junta um texto com outro)
+o resultado impresso seria: 1820
+A operação que deve ocorrer deve estar entre parenteses (matemática)
+ex.:
+. document.write((20 + 10 + 30)/3);
+. document.write("A soma das idades é " + (20 + 10 + 30));
+Para o resultado da soma fique separado do texto, precisamos dar um espaço dentro do texto entre aspas, depois de "é ".
+
+
+
+________________________________________________
+
+
+criação de variáveis:
+"var" = variável
+"=" = recebe 
+ex.: var ano = 2016 (variável "ano" recebe o valor "2016"
+Automaticamente, todos os lugares em que a palavra "ano" está presente serão interpretados como 2016. 
+O processo de "raciocínio" do JavaScript será questionar se determinado trecho está entre aspas, e se estiver, é uma string, caso negativo, será feita uma próxima pergunta: trata-se de um número? Caso a resposta seja "não", significa que se trata de uma variável.
+A variável começa com letras minúsculas. Se houverem duas palavras a segunda inicia com letra maíuscula (camelCase).
+Em qualquer momento, no próprio código, podemos indicar um novo valor para esta mesma variável e tudo que estiver abaixo dela deverá considerar a variável desta forma. O prefixo var só é utilizado ao declararmos a variável pela primeira vez, então não é necessário utilizá-lo ao definirmos um novo valor
+
+Para arrendondar resultados trabalharemos com a matemática (Math) chamaremos. Em seguida, chamaremos a função round (do inglês, "arredondar"): = Math.round(variável)
+Com o conteúdo entre parênteses de document.write(), definimos o que será exibido na tela, e com Math.round definiremos qual valor será arredondado
+
+
+
+
+____________________________________________
+
+Para pular linha:
+document.write("<br>")
+document.write("<br><br><br><br>")
+
+Todas as funções que criarmos estarão nas primeiras instruções da tag <script>, ou seja, declararemos no início do código.
+Toda função criada se inicia com o termo "function", em seguida temos o nome da função, terminando com parêntese:
+ex.: function pulaLinha(){
+document.write("<br>")
+}
+sempre dentro de um bloco utilizaremos a tecla "Tab" para criar um espaçamento na linha e, assim, o código ficará indentado e teremos uma melhor noção de hierarquia.
+toda função pode englobar uma ou mais instruções.
+para executar a função, é necessária a utilização dos parênteses: ex. pulaLinha()
+Função é sempre um verbo
+O nome de uma função é tão importante quanto o código que ela executa, para deixar claro o que ela faz.
+
+Colocar trechos em comentários, por meio de barras duplas (//). O programa ignorará a referida linha, que continuará presente para fins didáticos, para lembrarmos o que havia antes.
+
+
+Função com parâmetro:
+function mostra(frase) {
+
+    document.write(frase);
+
+}
+O parâmetro da função é considerado como se fosse uma variável. 
+ Uma função pode ter como instrução a chamada de outra função.
+ex.: function mostra(frase) {
+
+    document.write(frase);
+    pulaLinha();
+}
+Para "chamar" a função, precisamos definir o parametro que deve ser exibido.7
+ex.: var ano = 2016;
+
+mostra("Calopsita!");
+
+<hr> = imprime uma linha na tela 
+
+
+___________________
+
+Se a função esta preparada para receber dois parâmetros, na hora que ela for chamada precisamos passar dois parâmetros. Na declaração da função, podemos escolher qualquer nome para os parâmetros, mas precisamos usar esses nomes no bloco da função.
+
+é possível criar funções com operações matemáticas. Para isso é necessário preparar a função para receber os parâmetros.
+
+O valor de uma variável pode ser retornado por uma função. O problema é que a função por padrão não retorna, então, precisamos explicitar seu retorno através da instrução return. 
+
+Função prompt(): Trata-se de uma função do JavaScript, que receberá como parâmetro a pergunta que desejamos fazer ao usuário
+prompt("Informe sua altura"); 
+Ela é uma função que recebe parâmetro e possui retorno.
+O return da função prompt() - que não foi criada por nós, e é do JavaScript -, sempre retorna como texto, não como número.
+parseInt(), uma função existente no JavaScript, e preparada para receber um texto a ser convertido em número. Como o retorno da função prompt() é sempre string ao utilizar o operador + é aplicado uma concatenação.
+Sempre que formos ler uma entrada, e a intenção for trabalhar com números, temos que fazer o parseInt() para que o valor digitado, que por padrão é lido como texto, seja interpretado como um número.
+
+Assim, o if() só exibirá o mostra() caso o resultado da operação entre parênteses seja true. Precisamos definir que o if() pode ter mais de uma instrução, e pode fazer mais de uma coisa. Para isso, ele deverá ter um bloco, representado pelas chaves ({}):
+if(pontos > 28) {
+    mostra("Seu time está melhor do que no ano passado.");
+}
+
+ele passará a analisar o && e se questionar se, além disso, também é menor ou igual a 35. Sendo as duas afirmações verdadeiras, o navegador imprimirá a mensagem Seu IMC está excelente!. Atenção, se uma das condições for verdadeira e a outra não, nada será exibido, uma vez que a função mostra() só será executada se as duas condições forem verdadeiras.
+
+== equivale a igual
+!= equivale a diferente
+
+if() equivale a "se"
+else { equivale a "se não" (ou "caso contrário")
+
+A condição if precisa receber o resultado de uma operação lógica dentro de seu parênteses. Além disso, é dentro do seu bloco que indicamos qual ou quais instruções serão executadas se a operação lógica der true. Temos as duas chaves que iniciam e terminam o bloco if. A instrução else vem logo após o fechamento do bloco if. Assim como a instrução if, a else também possui seu bloco com as instruções que desejamos executar se a condição if receber false
+
+função Math.random(), que gera um número aleatório.
+
+ferramenta de repetição "while", que recebe (true). O while(true) indica que sempre será repetido o conteúdo do bloco dessa função. Se o while receber false, nada será repetido.
+
+for(variável que será implementada; condição; critério de incremento)
+
+total++ == total = total + 1
+
+A instrução for é dividida em três partes que são separadas por ponto e vírgula. A primeira é destinada a variável de incremento, a segundo à condição de repetição e a última ao incremento da variável de incremento. Usamos contador++ no lugar de contador = contador + 1. A primeira forma é muito mais enxuta.
+
+comando "break" interrompe a repetição.
+
+Para que as casas decimais sejam mantidas, usamos o "parseFloat()" no lugar de "parseInt()"
+
+A palavra "input" vem do inglês, e sua tradução é "entrada". Em seguida, criaremos um botão, e a palavra em inglês para isso é "button", assim, vamos usá-la em nosso código. Esta tag, como podemos observar, abre e fecha, diferentemente da <input>. Dentro da tag <button> inseriremos a frase.
+
+Precisaremos descobrir uma maneira de acessar estas tags do mundo HTML a partir do mundo JavaScript. Para isso, criaremos uma variável input. Ela receberá a função document.querySelector() - atenção para o "S" maiúsculo. Utilizaremos a querySelector() para inserir aquilo que está no mundo HTML na variável input. Ela receberá como parâmetro o nome da tag que desejamos utilizar. Isso permite trabalharmos com o <input> no universo JavaScript. O nome da variável não importa, podemos escolher qualquer um, apenas precisamos nos atentar ao nome da tag, que deve ser passado exatamente como é para o querySelector() poder acessá-lo. No caso, chamaremos a variável de input apenas por motivos didáticos.
+Para sabermos qual o valor que está inserido na variável, utilizaremos o input.value:
+
+É através de document.querySelector que podemos ir lá no mundo HTML e trazer o elemento para o mundo JavaScript para que possamos manipulá-lo. Mas cuidado, o correto é querySelector com S maiúsculo. Se por acaso você escrever com 's' minúsculo cometerá um erro de sintaxe.
+
+Continuando... O document.querySelector recebe um parâmetro o nome da tag que desejamos buscar do mundo HTML. Ele é mais poderoso do que você imagina e aceita receber outros tipos de parâmetros, mas para nosso treinamento, entender que se passarmos o nome de uma tag HTML ele nos devolverá a tag no mundo JavaScript é suficiente. Há outros jargões envolvidos nesse processo, mas não se preocupe. Você saberá todos eles se quiser continuar seus estudos na linguagem JavaScript.
+
+Todo array é declarado com colchetes, o famoso []. Contudo se tivermos uma declaração desta forma var coisas = []; temos um array, ou seja, uma lista vazia sem qualquer elemento.
+
+Podemos, no momento da declaração de um array, adicionar elementos. Esses elementos podem ser de qualquer tipo conhecido do JavaScript.
+
+Quando queremos acessar um elemento específico do array, precisamos passar seu índice, ou seja, sua posição na lista. Contudo, precisamos estar muito atentos porque os índices do array começam de 0 até o tamanho do array menos um.

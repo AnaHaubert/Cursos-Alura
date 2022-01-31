@@ -1,0 +1,82 @@
+<canvas> </canvas> é uma tag do mundo HTML, que tem a mesma finalidade de uma tela em branco, onde podemos desenhar.
+
+Precisamos informar, em nosso programa, quanto o <canvas> ocupa de espaço. Para isso, utilizaremos dois atributos, o width, que em português é "largura", diremos que é 600, e o height, ou "altura", que será de 400.
+<canvas width="600" height="400"></canvas>
+
+Para trazer do <canvas> para o <script>: document.querySelector() - Retorna o primeiro elemento dentro do documento (usando ordenação em profundidade, pré-ordenada e transversal dos nós do documento) que corresponde ao grupo especificado de seletores:
+var tela = document.querySelector("canvas");
+
+No mundo da programação podemos ter gráficos em 2D, 3D, 4D, etc. Precisamos informar à tela qual o tipo de pincel (o contexto) no qual escreveremos na tela. Para isso, utilizaremos o getContext() e passaremos o 2d como parâmetro: 
+var pincel = tela.getContext('2d')
+
+Para indicar qual a "tinta", temos de indicar o fillStyle. O fillStyle não é uma função, e sim uma propriedade, equivalente a uma variável, por receber um valor, que é a cor:
+pincel.fillStyle = "lightgrey";
+
+Para preencher um retângulo: Preencher em Inglês é "fill", enquanto "rect" é a abreviação de retângulo.
+Inicia-se o preechimento no ponto 0 dos eixos x e y. No código, as coordenadas são inseridas entre os parênteses da instrução:
+ pincel.fillRect(0, 0, 600, 400);
+
+o fillStyle deve vir antes do fillRect
+
+	Para a criação de um triângulo, não utilizaremos o fillRect, em vez disso, queremos começar um caminho. Portanto, utilizaremos um begin path para dizermos qual será a direção seguida por nosso pincel.
+pincel.beginPath():
+	Para começarmos a escrever, indicaremos onde está o ponto inicial do nosso triângulo. Nossa primeira coordenada será centralizada na tela, para fazermos isso, utilizaremos a função moveTo (move o ponto inicial de um novo sub-caminho "sub-path" para as coordenadas "x, y"):
+pincel.moveTo(300, 200);
+	Em seguida, moveremos o pincel para uma nova posição, com a função lineTo (conecta o último ponto do sub-caminho "sub-path" para as coordenadas x, y, através de uma linha):
+pincel.lineTo(200, 400);
+	O próximo movimento criará uma linha horizontal, do ponto que acabamos de criar até o ponto oposto:
+pincel.lineTo(400, 400);
+	Por fim, basta inserirmos um comando para que o programa preencha esta forma:
+pincel.fill()
+
+Para desenha um circulo:
+	Para começarmos, indicaremos um novo pincel, com o fillStyle na cor azul, e um novo caminho, com o beginPath.
+	Partiremos para a utilização da função arc() (adiciona um arco circular para o atual sub-caminhoa "sub-path"), para traçarmos nossa esfera. Nela, incluiremos as seguintes informações: posicionamento da esfera, tamanho (raio), ângulo inicial e ângulo final em radianos (multiplicado por PI):
+pincel.arc(300, 200, 50, 0, 2 * 3.14);
+	Em seguida, chamaremos a função fill para que a esfera seja preenchida.
+
+Para que pudéssemos construir esta imagem, precisamos conhecer a função getContext(), fillRect(), lineTo(), beginPath(), a propriedade fillStyle, a esse conjunto de propriedades damos o nome de APIs, ou bibliotecas. Aqui, estamos manipulando a API específica para a criação de gráficos. Para descobrirmos estas bibliotecas, temos que pesquisar pela documentação da linguagem na internet, utilizando os termos "canvas 2d api".
+
+Para inserir borda na forma:
+strokeStyle - Indica a cor da borda da forma:
+pincel.strokeStyle = 'black';
+strokeRect()
+Em seguida, indicaremos ao pincel que ele deve desenhar a borda, utilizando o strokeRect(). A borda deve ser inserida na mesma posição do quadrado:
+pincel.strokeRect(0, 0, 50, 50);
+
+A função é um código que foi guardado para ser chamado posteriormente. É possível armazenar os códigos para desenhar formas dentro de uma função.
+
+Quando não definimos a cor do stroke a cor padrão utilizada é black. No entanto, para mudarmos a cor do stroke para uma cor diferente de preto, precisamos realizar essa operação através da propriedade strokeStyle.
+
+Para deixar a função genérica, para que possa funcionar para diferentes objetos:
+O fillRect e o strokeRect não poderão ser o mesmo para todos, deverá receber parâmetros diferentes para cada objeto que o usuário deseje criar. Faremos com que ela seja capaz de aceitar o parâmetro x, que será aceito em fillRect() e strokeRect():
+function desenhaQuadradoVerde(x) 
+	Ao chamarmos a função desenhaQuadradoVerde() e passarmos 0 como parâmetro, este número ocupa o parâmetro x e é utilizado na coordenada X do fillRect e do strokeRect. Na próxima chamada da função, o parâmetro passado será 50, e este será o número considerado no fillRect e no strokeRect, e assim sucessivamente.
+	Mas e se quisermos alinhar os quadrados não mais no eixo X, e sim no eixo Y? Nesta hipótese, além do x, teremos também o parâmetro y:
+function desenhaQuadradoVerde(x, y)
+	E se quisermos quadrados de outras cores? Podemos passar a cor também como um parâmetro, assim não precisaremos alterar todas as vezes que quisermos um quadrado com uma nova cor.
+	Teremos que informar à função que ela receberá mais um parâmetro, na própria construção da função, que chamaremos de cor, e em vez de termos a cor no fillStyle, substituiremos também por cor
+function desenhaQuadrado(x, y, cor)
+pincel.fillStyle = cor;
+
+Para que servem funções:
+	Podemos criar uma função genérica que receba os dados necessários por meio de parâmetros, e deixar que um loop chame a mesma função várias vezes, com um parâmetro diferente a cada vez.
+	Em vez de escrever uma linha para cada forma que queremos criar, passando manualmente as informações de cada uma, podemos escrever uma função para, por exemplo, criar um quadrado colorido de qualquer tamanho e cor.
+	Utilizamos funções para deixar cada parte do código bem separada, assim sabemos exatamente o que está acontecendo em cada uma. Além do mais, é prática comum utilizarmos nomes bem específicos para cada função, assim quem ler o código não terá problemas em saber o que elas fazem.
+
+Os loops, ou laços de repetição, são uma estrutura básica em programação que usamos para repetir tarefas
+	Quando criamos um loop, passamos uma condição, por exemplo while(x < 600) ou “enquanto x for menor que 600”. Mas se não for passada nenhuma outra linha de código dentro do loop para que x em algum momento tenha esse valor, por exemplo x = x + 50, o código entra no chamado loop infinito.
+	Quando o programa executa a linha de código onde está o loop, fica “preso” dentro do loop enquanto a condição for verdadeira. Por exemplo, while (x < 600).
+	Sobre while e for: É normal existir várias formas de escrever códigos que façam a mesma tarefa, e este é um destes casos. Porém, embora o resultado final seja o mesmo, há uma diferença na sintaxe (ou seja, na forma de escrever) de cada um: enquanto o while precisa receber manualmente em alguma parte do código a linha que altera a condição verdadeira (no caso, x = x + 50;, pela sintaxe do for precisamos passar essa informação nos parênteses iniciais.
+
+O JavaScript nos permite trabalhar com eventos. No caso, utilizaremos a propriedade onclick, tudo que atribuirmos a ela - se for uma função - esta será chamada pelo clique:
+tela.onclick = exibeAlerta;
+Lembrando que não podemos utilizar os parênteses neste último caso pois, assim executaríamos a função automaticamente, em vez de guardá-la para ser executada ao clique.
+
+console.log - Exibe uma mensagem na console do navegador.
+
+setInterval() repetem chamadas de funções or executam trechos de código, com um tempo de espera fixo entre cada chamada.
+
+
+
+
