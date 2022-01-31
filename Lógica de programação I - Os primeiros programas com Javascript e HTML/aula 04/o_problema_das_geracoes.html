@@ -1,0 +1,24 @@
+<meta charset="UTF-8">
+
+<script>
+	
+	function pulalinha(){
+
+		document.write("<br><br>");
+	
+	}
+
+	function mostra(frase){
+
+		document.write(frase);
+		pulalinha();
+
+	}
+
+	var anoAtual = 2021;
+	var idadeMediaParaTerFilhos = 28
+	var gerações = ((anoAtual - 1500) / idadeMediaParaTerFilhos);
+
+	mostra("Desde 1500 passaram-se " + Math.round(gerações) + " gerações.");
+
+</script>

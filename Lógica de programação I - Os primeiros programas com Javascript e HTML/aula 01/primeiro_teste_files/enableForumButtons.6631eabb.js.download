@@ -1,0 +1,1 @@
+"use strict";function enableForumButtons(){var e=document.querySelector(".topic-reply-form-submit");e&&e.removeAttribute("disabled");e=document.querySelector(".createTopic-form-button");e&&e.removeAttribute("disabled");e=document.querySelector(".editTopic-form-button");e&&e.removeAttribute("disabled")}
