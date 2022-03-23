@@ -13,10 +13,9 @@ function selectionTroca(livros, indexMenorPreco, indexAtual) {
     //armazena o objeto que está sendo analisado
     let objetoAtual = livros[indexAtual];
 
-    //troca a posição, fazendo com que o ObjetoMenorPreco vá para a posição do objetoAtual (que está sendo analisado no for)
-    livros[indexMenorPreco] = objetoAtual;
-    //troca a posição, fazendo com que o objetoAtual vá para a posição onde estava o objetoMenorPreco
-    livros[indexAtual] = objetoMenorPreco;
+    
+    livros[indexMenorPreco] = objetoAtual; //objetoAtual vai para a posição onde estava o objetoMenorPreco
+    livros[indexAtual] = objetoMenorPreco; //a lista de livros na posição atual, recebe o objetoMenorPreço
 }
 
 module.exports = insertionTroca; //exporta a função
