@@ -1,0 +1,2 @@
+div label { color: blue; }
+div + label { color: green; }
