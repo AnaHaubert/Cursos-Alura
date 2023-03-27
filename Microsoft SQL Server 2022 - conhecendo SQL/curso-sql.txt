@@ -1,0 +1,64 @@
+AnaHaubert@achf.onmicrosoft.com
+
+Autenticação do SQL Server
+logon: sa
+senha: 182922
+
+Criar base de dados:
+	comando: CREATE DATABASE + nome da base de dados
+ou: CREATE DATABASE + nome da base de dados
+	ON (*especificações:*
+		NAME = 
+		FILENAME = 
+		SIZE = 
+		...
+	) 
+	LOG ON (*especificações:*
+		NAME = 
+		FILENAME = 
+		SIZE = 
+		...
+	) 
+
+Criar uma tabela usando o assistente do SSMS (SQL Server Management Studio): 
+	Botão direito em cima da pasta 'Bancos de Dados' > 'Novo Banco de Dados...'
+
+arquivo LOG:  arquivo de transações que guardam os comandos executados para futura recuperação de dados se necessário for.
+
+Apagar banco de dados:
+DROP DATABASE [nome do banco de dados];
+
+TIPOS DE DADOS DISPONIBILIZADOS PELO SQL SERVER:
+numéricos exatos;
+numéricos aproximados;
+data e hora;
+cadeia de caracteres;
+cadeia de caracteres Unicode;
+cadeira de caracteres binários;
+outros tipos de dados.
+
+CHAR e VARCHAR
+São tipos de dados caractere, a diferença é que CHAR é um tipo de dado de comprimento fixo e VARCHAR é de comprimento variável.
+Usamos CHAR quando os tamanhos que desejamos armazenar na coluna de uma tabela são de tamanho consistentes e semelhantes. 
+Use VARCHAR quando os tamanhos a serem armazenados na coluna da tabela variam consideravelmente.
+
+CREATE TABLE - cria tabela
+DROP TABLE - exclui tabela
+
+Incluir dados na tabela:
+INSERT INTO [nome da tabela]
+(
+ ... colunas
+)
+VALUE
+(
+... dados que devem ser inseridos
+)
+
+BANCO DE DADOS SEQUENCIAIS:
+Armazenavam qualquer coisa sem restrições.
+Ex.: regras de negócio.
+
+BANCO DE DADOS RELACIONAIS:
+Possibilidade de inserir restrições no próprio banco de dados.
+Exemplo: não ter produtos com o mesmo código.
