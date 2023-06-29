@@ -1,0 +1,49 @@
+SELECT <LISTA DE CAMPOS> ou * 
+FROM <NOME DA TABELA>
+- exibe todas as linhas da tabela
+
+WHERE <FILTRO>
+- só exibe o resultado das linhas onde o filtro for verdadeiro
+- para filtrar por data, utilizar o formato 
+YYYY-MM-DD
+
+
+Expressão lógica simples:
+
+SELECT * FROM <NOME DA TABELA>
+WHERE X = A
+- Quando a expressão VERDADEIRA aparece no resultado da consulta
+- Quando a expressão FALSA não aparece no resultado
+
+
+Expressão lógica composta:
+
+SELECT * FROM <NOME DA TABELA>
+WHERE X = A OR Y = B
+
+SELECT * FROM <NOME DA TABELA>
+WHERE X = A OR Y = B
+
+Expressões lógicas primárias intercaladas com AND ou OR.
+
+OR - pelo menos uma das expressões precisa ser válida
+
+AND - todas as expressões precisam ser válidas
+
+NOT - inverte o resultado
+
+ex. : mais de dois filtros 'OR' e 'AND'
+SELECT * FROM TABELA_DE_PRODUTOS
+WHERE SABOR in ('Manga','Laranja','Melancia') and TAMANHO = '1 litro';
+
+EX. BETWEEN (entre uma idade e outra)
+select * from TABELA_DE_CLIENTES
+where CIDADE in ('Rio de Janeiro', 'São Paulo') and (idade BETWEEN 20 AND 25);
+
+
+SELECT * FROM <NOME DA TABELA>
+WHERE LIKE '%TESTE%'
+% = CORINGA
+LIKE '%TESTE' - Começa com qualquer texto e termina com a palavra TESTE
+LIKE 'TESTE%' - Começa com o texto TESTE e termina com qualquer texto
+LIKE '%TESTE%' - Começa com qualquer texto, tem a palavra TESTE no meio e termina com qualquer texto.
